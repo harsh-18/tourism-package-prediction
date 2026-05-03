@@ -32,6 +32,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r tourism_project/requirements_ci.txt
       - name: Data Preparation
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python tourism_project/model_building/data_preparation.py
 
   model-training:
@@ -45,6 +47,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r tourism_project/requirements_ci.txt
       - name: Train Model
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python tourism_project/model_building/model_building.py
 
   deploy-hosting:
@@ -58,4 +62,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r tourism_project/deployment/requirements.txt
       - name: Deploy
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python tourism_project/deployment/hosting.py
