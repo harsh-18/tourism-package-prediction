@@ -36,6 +36,11 @@ test_path  = hf_hub_download(repo_id=dataset_repo, filename="test.csv",
 train_df = pd.read_csv(train_path)
 test_df  = pd.read_csv(test_path)
 
+# drop index column if present from old CSV saves
+for _df in [train_df, test_df]:
+    if "Unnamed: 0" in _df.columns:
+        _df.drop(columns=["Unnamed: 0"], inplace=True)
+
 X_train = train_df.drop(columns=["ProdTaken"])
 y_train = train_df["ProdTaken"]
 X_test  = test_df.drop(columns=["ProdTaken"])
