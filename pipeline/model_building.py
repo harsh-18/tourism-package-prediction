@@ -21,7 +21,7 @@ dataset_repo = f"{HF_USERNAME}/tourism-dataset"
 model_repo   = f"{HF_USERNAME}/tourism-wellness-model"
 
 # MLflow runs locally on the Actions runner
-mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.set_tracking_uri("file:./mlruns")
 mlflow.set_experiment("tourism_wellness_prediction")
 
 # Pull prepared splits from HF
