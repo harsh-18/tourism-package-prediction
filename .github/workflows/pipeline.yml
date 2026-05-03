@@ -17,6 +17,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r tourism_project/requirements_ci.txt
       - name: Register Dataset
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python tourism_project/model_building/data_registration.py
 
   data-prep:
