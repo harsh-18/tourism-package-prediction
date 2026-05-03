@@ -16,11 +16,11 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install -r tourism-package-prediction/requirements.txt  # ← path fix
+        run: pip install -r requirements.txt  # ← path fix
       - name: Register data
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python tourism-package-prediction/pipeline/data_registration.py  # ← path fix
+        run: python pipeline/data_registration.py  # ← path fix
 
   # ── Job 2: Data Preparation ───────────────────────────────────
   data-preparation:
@@ -33,11 +33,11 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install tourism-package-prediction/requirements.txt  # ← path fix
+        run: pip install requirements.txt  # ← path fix
       - name: Prepare data
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python tourism-package-prediction/pipeline/data_preparation.py
+        run: python pipeline/data_preparation.py
 
   # ── Job 3: Model Training ─────────────────────────────────────
   model-training:
@@ -50,11 +50,11 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install -r tourism-package-prediction/requirements.txt  # ← path fix
+        run: pip install -r requirements.txt  # ← path fix
       - name: Train model
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python tourism-package-prediction/pipeline/model_building.py
+        run: python pipeline/model_building.py
   # ── Job 4: Deployment ─────────────────────────────────────────
   deployment:
     runs-on: ubuntu-latest
@@ -66,9 +66,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install -r tourism-package-prediction/requirements.txt  # ← path fix
+        run: pip install -r requirements.txt  # ← path fix
       - name: Deploy to HF Spaces
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: python tourism-package-prediction/deployment/hosting.py
+        run: python deployment/hosting.py
         
