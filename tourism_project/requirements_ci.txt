@@ -1,0 +1,8 @@
+
+huggingface_hub
+scikit-learn
+pandas
+numpy
+xgboost
+mlflow
+joblib
