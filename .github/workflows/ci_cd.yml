@@ -33,7 +33,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install requirements.txt  # ← path fix
+        run: pip install -r requirements.txt  # ← path fix
       - name: Prepare data
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
