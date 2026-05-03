@@ -21,7 +21,7 @@ api.create_repo(
 # Push all three deployment files into the Space repo
 for fname in ["app.py", "requirements.txt", "Dockerfile"]:
     api.upload_file(
-        path_or_fileobj=f"/content/drive/MyDrive/Colab Notebooks/PGP AI ML/Projects/tourism_project/deployment/{fname}",
+        path_or_fileobj=f"deployment/{fname}",
         path_in_repo=fname,
         repo_id=space_repo,
         repo_type="space",
